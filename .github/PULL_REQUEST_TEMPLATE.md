@@ -1,2 +1,4 @@
-[Ingestion template](?template=ingestion-pr-template.md)
-[Default template](?template=default-pr-template.md)
+Click the `Preview` tab and select a PR template:
+
+- [Ingestion template](?template=ingestion-pr-template.md)
+- [Default template](?template=default-pr-template.md)
