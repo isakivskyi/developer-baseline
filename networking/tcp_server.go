@@ -1,3 +1,9 @@
+// This program implements a simple TCP server that listens on a specified port
+
+// Usage: go run tcp_server.go <port> <echo_prefix>
+// Example: go run -v networking/tcp_server.go 9000 hello
+// In another terminal: echo python | nc localhost 9000
+
 package main
 
 import (
@@ -10,14 +16,14 @@ import (
 
 func main() {
 	port := fmt.Sprintf(":%s", os.Args[1])
-	prefix := os.Args[2]
+	echo_prefix := os.Args[2]
 
 	listener, err := net.Listen("tcp", port)
 	if err != nil {
 		fmt.Println("failed to create listener, err:", err)
 		os.Exit(1)
 	}
-	fmt.Printf("listening on %s, prefix: %s\n", listener.Addr(), prefix)
+	fmt.Printf("listening on %s, echo prefix: %s\n", listener.Addr(), echo_prefix)
 
 	for {
 		conn, err := listener.Accept()
@@ -26,7 +32,7 @@ func main() {
 			continue
 		}
 
-		go handleConnection(conn, prefix)
+		go handleConnection(conn, echo_prefix)
 	}
 }
 
