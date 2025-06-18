@@ -2,6 +2,7 @@
 
 // Usage: go run tcp_server.go <port> <echo_prefix>
 // Example: go run -v networking/tcp_server.go 9000 hello
+// Verify it runs: netstat -an | grep LISTEN | grep 9000
 // In another terminal: echo python | nc localhost 9000
 
 package main
